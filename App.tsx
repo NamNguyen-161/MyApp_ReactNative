@@ -15,7 +15,6 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
 } from 'react-native';
 
@@ -26,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import useColorScheme from './src/hooks/useColorScheme';
 
 const Section: React.FC<
   PropsWithChildren<{
@@ -78,10 +78,7 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          <Section title="Step One">Hello Nguyen Van Nam</Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
