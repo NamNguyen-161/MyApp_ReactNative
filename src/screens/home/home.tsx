@@ -12,7 +12,6 @@ interface Params {
 export default function HomeScreen() {
   const navigation = useNavigation();
   const route = useRoute<Params>();
-  console.log({route: route.params.name});
   return (
     <View>
       <Text>HomeScreen</Text>
