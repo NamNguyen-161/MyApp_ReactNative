@@ -12,7 +12,7 @@ interface Params {
 export default function HomeScreen() {
   const navigation = useNavigation();
   const route = useRoute<Params>();
-  console.log('config github');
+  console.log('test username');
   return (
     <View>
       <Text>HomeScreen</Text>
