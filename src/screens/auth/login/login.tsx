@@ -1,31 +1,31 @@
-import * as React from 'react';
-import {Button, Text} from 'react-native';
-import useNavigation from '../../../hooks/useNavigation';
+import React from 'react';
+import {ImageBackground, SafeAreaView, StyleSheet, View} from 'react-native';
+import {BackgroundAuth} from '../../../assets/images';
+import AuthScroll from '../../../animations/auth-scroll';
 
 export interface ILoginScreenProps {}
 
 export default function LoginScreen() {
-  const navigation = useNavigation();
   return (
-    <>
-      <Text>LoginScreen</Text>
-      <Button
-        title="Go to home"
-        onPress={() =>
-          navigation.navigate('MAIN', {
-            screen: 'HOME',
-            params: {name: 'Nguyen Van Nam'},
-          })
-        }
-      />
-      <Button
-        title="REGISTER"
-        onPress={() =>
-          navigation.navigate('REGISTER', {
-            params: {name: 'REGISTER'},
-          })
-        }
-      />
-    </>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <AuthScroll>
+          <ImageBackground
+            resizeMode="cover"
+            source={BackgroundAuth}
+            style={{flex: 1}}
+          />
+        </AuthScroll>
+      </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#111',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
