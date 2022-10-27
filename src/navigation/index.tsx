@@ -20,7 +20,7 @@ export default function MainNavigator() {
       <Stack.Screen
         name="LOGIN"
         component={LoginScreen}
-        options={{headerTitle: ''}}
+        options={{headerShown: false}}
       />
       <Stack.Screen name="REGISTER" component={RegisterScreen} />
     </Stack.Navigator>
