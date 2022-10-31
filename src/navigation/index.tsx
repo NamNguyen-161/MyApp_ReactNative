@@ -1,28 +1,24 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {StackParams} from './types';
-import LoginScreen from '../screens/auth/login/login';
-import RegisterScreen from '../screens/auth/register/register';
-import BottomNavigation from './bottom-navigation';
+import BottomNavigation from './bottom';
+import AuthNavigation from './auth';
 
 const Stack = createStackNavigator<StackParams>();
 
-export interface ILoginNavigatorProps {}
-
 export default function MainNavigator() {
   return (
-    <Stack.Navigator initialRouteName="LOGIN">
+    <Stack.Navigator initialRouteName="AUTH">
+      <Stack.Screen
+        name="AUTH"
+        component={AuthNavigation}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="MAIN"
         component={BottomNavigation}
         options={{headerShown: false}}
       />
-      <Stack.Screen
-        name="LOGIN"
-        component={LoginScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen name="REGISTER" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }

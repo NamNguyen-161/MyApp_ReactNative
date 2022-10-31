@@ -1,1 +1,2 @@
-export const BackgroundAuth = require('./bg_auth.png');
+const BackgroundAuth = require('./bg_auth.png');
+export const Image = {BackgroundAuth};
