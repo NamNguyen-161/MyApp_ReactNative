@@ -64,7 +64,7 @@ const AuthScroll = (props: AuthScrollProps) => {
       }
     });
 
-  const rBottomSheetStyle = useAnimatedStyle(() => {
+  const rTopSheetStyle = useAnimatedStyle(() => {
     const borderRadius = interpolate(
       translateY.value,
       [MAX_TRANSLATE_Y + 50, MAX_TRANSLATE_Y],
@@ -80,7 +80,7 @@ const AuthScroll = (props: AuthScrollProps) => {
 
   return (
     <GestureDetector gesture={gesture}>
-      <Animated.View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
+      <Animated.View style={[styles.topSheetContainer, rTopSheetStyle]}>
         {children}
       </Animated.View>
     </GestureDetector>
@@ -88,13 +88,13 @@ const AuthScroll = (props: AuthScrollProps) => {
 };
 
 const styles = StyleSheet.create({
-  bottomSheetContainer: {
+  topSheetContainer: {
     height: SCREEN_HEIGHT,
     width: '100%',
-    backgroundColor: 'white',
     position: 'absolute',
     bottom: SCREEN_HEIGHT,
     borderRadius: 25,
+    zIndex: 1,
   },
 });
 
