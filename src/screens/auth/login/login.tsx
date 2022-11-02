@@ -1,38 +1,40 @@
 import React, {useState} from 'react';
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import {
   Input,
   FormControl,
   WarningOutlineIcon,
   Box,
-  Center,
   Pressable,
   Icon,
-  Button,
+  Text,
 } from 'native-base';
 import {MaterialIcons} from '@expo/vector-icons';
 import {Controller, useForm} from 'react-hook-form';
+import useNavigation from '../../../hooks/useNavigation';
+import AuthLayout from '../../../layouts/auth-layout';
 
 export interface ILoginScreenProps {}
 
-const {height: SCREEN_HEIGHT} = Dimensions.get('window');
-
 export default function LoginScreen() {
+  const navigation = useNavigation();
   const formMethod = useForm();
-  const {handleSubmit, control, getValues} = formMethod;
+  const {handleSubmit, control} = formMethod;
   const [show, setShow] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
     console.log(data);
   };
   return (
-    <Center flex={1}>
-      <Box alignItems="center" style={styles.container}>
+    <AuthLayout onSubmit={handleSubmit(onSubmit)}>
+      <Text style={styles.title}>Login</Text>
+      <Text style={styles.description}>Sign to your account</Text>
+      <Box width="100%" pt="30px">
         <Controller
           name="email"
           control={control}
           render={({field, fieldState}) => (
-            <FormControl w="75%" py={2}>
+            <FormControl py={2}>
               <FormControl.Label>Email</FormControl.Label>
               <Input
                 {...field}
@@ -65,7 +67,7 @@ export default function LoginScreen() {
           name="password"
           control={control}
           render={({field, fieldState}) => (
-            <FormControl w="75%" py={2}>
+            <FormControl py={2}>
               <FormControl.Label>Password</FormControl.Label>
               <Input
                 {...field}
@@ -97,25 +99,39 @@ export default function LoginScreen() {
             </FormControl>
           )}
         />
-        <Button
-          // isLoading
-          // isLoadingText="Submitting"
-          spinnerPlacement="end"
-          onPress={handleSubmit(onSubmit)}>
-          Button
-        </Button>
       </Box>
-    </Center>
+      <Text style={styles.notAccount}>
+        Don't have an account? &nbsp;
+        <Text
+          style={styles.signup}
+          onPress={() => navigation.navigate('SIGNUP')}>
+          Sign up
+        </Text>
+      </Text>
+    </AuthLayout>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  title: {
     width: '100%',
-    height: SCREEN_HEIGHT,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    textTransform: 'uppercase',
+    fontWeight: '700',
+    fontSize: 24,
+    lineHeight: 32,
+  },
+  description: {
+    paddingTop: 10,
+    width: '100%',
+    fontSize: 16,
+    lineHeight: 19,
+  },
+  notAccount: {
+    color: 'gray',
+    paddingVertical: 10,
+  },
+  signup: {
+    color: '#19A54A',
+    fontWeight: '700',
   },
 });
