@@ -36,19 +36,6 @@ const styles = StyleSheet.create({
     height: HEIGHT_EMPTY,
     backgroundColor: 'violet',
   },
-  title: {
-    width: '100%',
-    textTransform: 'uppercase',
-    fontWeight: '700',
-    fontSize: 24,
-    lineHeight: 32,
-  },
-  description: {
-    paddingTop: 10,
-    width: '100%',
-    fontSize: 16,
-    lineHeight: 19,
-  },
   container: {
     flex: 1,
     width: '100%',
@@ -58,14 +45,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 20,
     paddingVertical: 30,
-  },
-  notAccount: {
-    color: 'gray',
-    paddingVertical: 10,
-  },
-  signup: {
-    color: '#19A54A',
-    fontWeight: '700',
   },
   button: {
     width: '100%',
