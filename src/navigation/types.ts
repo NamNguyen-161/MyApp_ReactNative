@@ -4,6 +4,6 @@ export type StackParams = {
   ABOUT: object | undefined;
 
   AUTH: object | undefined;
-  LOGIN: object | undefined;
-  REGISTER: object | undefined;
+  SIGNIN: object | undefined;
+  SIGNUP: object | undefined;
 };
