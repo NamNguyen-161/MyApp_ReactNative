@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   Input,
   FormControl,
@@ -23,6 +23,7 @@ export default function LoginScreen() {
   const [show, setShow] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
+    navigation.navigate('MAIN', {screen: 'HOME'});
     console.log(data);
   };
   return (
@@ -51,7 +52,7 @@ export default function LoginScreen() {
                     />
                   </Pressable>
                 }
-                placeholder="Password"
+                placeholder="Email"
               />
               {fieldState.error && (
                 <FormControl.ErrorMessage

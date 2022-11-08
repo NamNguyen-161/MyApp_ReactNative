@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   Input,
   FormControl,
@@ -118,7 +118,7 @@ export default function RegisterScreen() {
         <Text
           style={styles.signin}
           onPress={() => navigation.navigate('SIGNIN')}>
-          Sign up
+          Sign in
         </Text>
       </Text>
     </AuthLayout>

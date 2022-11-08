@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
   emptySpace: {
     width: '100%',
     height: HEIGHT_EMPTY,
-    backgroundColor: 'violet',
   },
   container: {
     flex: 1,
